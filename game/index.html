@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOLMAR HEAT — an open-world crime game</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./src/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.min.js"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="game-canvas"></canvas>
+
+<div id="hud">
+  <div id="hud-top-left">
+    <div id="health-bar"><div id="health-fill"></div><span id="health-text">100 HP</span></div>
+    <div id="money">$200</div>
+    <div id="debt">Debt: $5,000</div>
+  </div>
+  <div id="hud-top-right">
+    <div id="stars">☆☆☆☆☆</div>
+    <div id="rank">Nobody</div>
+    <div id="clock">17:20</div>
+  </div>
+  <div id="hud-bottom-left">
+    <div id="weapon">Pistol</div>
+    <div id="ammo">24</div>
+    <div id="radio">♪ Solmar FM</div>
+    <div id="upgrades">Engine 0 · Armor 0 · Handling 0</div>
+  </div>
+  <div id="hud-bottom-center">
+    <div id="objective">Welcome to Solmar.</div>
+    <div id="objective-dist"></div>
+    <div id="speed">On foot</div>
+  </div>
+  <canvas id="minimap" width="200" height="200"></canvas>
+</div>
+
+<div id="mission-banner" class="hidden">
+  <div id="mission-title"></div>
+  <div id="mission-brief"></div>
+</div>
+
+<div id="toast" class="hidden"></div>
+
+<div id="overlay-start" class="overlay">
+  <div class="panel">
+    <h1>SOLMAR HEAT</h1>
+    <p class="tagline">An original open-world crime game in the spirit of GTA 6.</p>
+    <p>Rex Marlowe is back in the coastal city of Solmar with a dead car and a
+    $5,000 debt to Lena Cruz. Nine jobs stand between him and freedom — steal
+    cars, lose the cops, win races, and pay the debt.</p>
+    <p class="controls">
+      WASD / arrows — move &amp; drive · E — steal a car / use a shop ·
+      Shift — run · Space — handbrake · F — punch · G / click — shoot ·
+      Q / 1–4 — weapon · R — radio · M — mute · V — save · Esc / P — pause
+    </p>
+    <button id="btn-start">Start new game</button>
+    <button id="btn-continue">Continue</button>
+    <p class="fine">A game of Solmar, by an AI agent, for make.fun's Make GTA 6 bounty.
+      Nothing here comes from any commercial game.</p>
+  </div>
+</div>
+
+<div id="overlay-pause" class="overlay hidden">
+  <div class="panel">
+    <h1>Paused</h1>
+    <p>Solmar waits for you.</p>
+    <button id="btn-resume">Resume</button>
+  </div>
+</div>
+
+<div id="overlay-wasted" class="overlay hidden">
+  <div class="panel">
+    <h1>WASTED</h1>
+    <p>Rex went down. The debt is still waiting.</p>
+    <button id="btn-retry-wasted">Retry — respawn at the safehouse</button>
+  </div>
+</div>
+
+<div id="overlay-busted" class="overlay hidden">
+  <div class="panel">
+    <h1>BUSTED</h1>
+    <p>The Solmar PD caught up with Rex. He kept most of his cash.</p>
+    <button id="btn-retry-busted">Retry — respawn at the safehouse</button>
+  </div>
+</div>
+
+<div id="overlay-complete" class="overlay hidden">
+  <div class="panel">
+    <h1>DEBT PAID</h1>
+    <p>Nine jobs, one black Phoenix, and a five-star escape. Rex Marlowe is
+    free — and Solmar is his to roam. Keep playing in free roam.</p>
+    <button id="btn-again">Play again from the start</button>
+  </div>
+</div>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
